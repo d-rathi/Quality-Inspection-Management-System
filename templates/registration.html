@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registration Code Verification</title>
+
+    <link rel="stylesheet" href="../static/css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+
+    <header>
+
+        <div class="logo">
+
+            <h2>🛞 QIMS</h2>
+
+        </div>
+
+        <nav>
+
+            <a href="contact.html">Contact Us</a>
+
+        </nav>
+
+    </header>
+
+    <!-- Registration Section -->
+
+    <section class="registration-section">
+
+        <div class="registration-box">
+
+            <h1>Registration Code Verification</h1>
+
+            <p>
+                Enter your Secret Registration Code to create a new account.
+            </p>
+
+            <form>
+
+                <label>Secret Registration Code</label>
+
+                <input
+                    type="password"
+                    id="secretCode"
+                    placeholder="Enter Secret Registration Code"
+                >
+
+                <div class="show-password">
+
+                    <input
+                        type="checkbox"
+                        id="showCode"
+                    >
+
+                    <label for="showCode">
+                        Show Registration Code
+                    </label>
+
+                </div>
+
+                <button
+                    type="button"
+                    onclick="verifyCode()"
+                    class="btn"
+                >
+                    Verify Code
+                </button>
+
+                <p
+                    id="message"
+                    class="error-message"
+                ></p>
+
+            </form>
+
+            <br>
+
+            <p>
+
+                Already Registered?
+
+                <a href="login.html">
+
+                    Login Here
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+
+        © 2026 Digital Tyre Quality Inspection Management System
+
+    </footer>
+
+    <script src="../static/js/script.js"></script>
+
+</body>
+
+</html>

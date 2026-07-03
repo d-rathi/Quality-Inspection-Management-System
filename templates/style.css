@@ -1,0 +1,375 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f8fc;
+    color:#1c2b39;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+header{
+    background:#0B3C78;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 60px;
+}
+
+.logo h2{
+    font-size:30px;
+    letter-spacing:1px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#FFD447;
+}
+
+/* ===========================
+   HERO SECTION
+=========================== */
+
+.hero{
+
+    text-align:center;
+
+    padding:70px 20px;
+}
+
+.hero h1{
+
+    font-size:42px;
+
+    color:#0B3C78;
+
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    font-size:20px;
+
+    color:#555;
+}
+
+/* ===========================
+   USER CARDS
+=========================== */
+
+.user-section{
+
+    width:90%;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:40px;
+
+    margin-top:40px;
+
+    flex-wrap:wrap;
+}
+
+.card{
+
+    background:white;
+
+    width:340px;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+    transition:0.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+}
+
+.card h2{
+
+    color:#0B3C78;
+
+    margin-bottom:15px;
+}
+
+.card p{
+
+    margin-bottom:25px;
+
+    line-height:1.6;
+}
+
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+
+    display:inline-block;
+
+    background:#0B3C78;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:12px 28px;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    background:#1565C0;
+}
+
+/* ===========================
+   ABOUT
+=========================== */
+
+.about{
+
+    width:85%;
+
+    margin:70px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.about h2{
+
+    text-align:center;
+
+    color:#0B3C78;
+
+    margin-bottom:20px;
+}
+
+.about p{
+
+    text-align:center;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+}
+
+.features{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    color:#0B3C78;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+
+footer{
+
+    background:#0B3C78;
+
+    color:white;
+
+    text-align:center;
+
+    padding:18px;
+
+    margin-top:60px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:30px;
+
+}
+
+.features{
+
+grid-template-columns:1fr;
+
+}
+
+header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}/* ===========================
+   REGISTRATION PAGE
+=========================== */
+
+.registration-section{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px 20px;
+
+}
+
+.registration-box{
+
+    width:500px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.registration-box h1{
+
+    color:#0B3C78;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+.registration-box p{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:#555;
+
+}
+
+.registration-box label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-top:15px;
+
+    margin-bottom:8px;
+
+}
+
+.registration-box input[type="password"],
+
+.registration-box input[type="text"]{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+}
+
+.show-password{
+
+    margin:15px 0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+}
+
+.show-password label{
+
+    margin:0;
+
+    font-weight:normal;
+
+}
+
+.registration-box .btn{
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.error-message{
+
+    margin-top:20px;
+
+    text-align:center;
+
+    color:red;
+
+    font-weight:bold;
+
+}
