@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | QIMS</title>
+
+    <link rel="stylesheet" href="../static/css/dashboard.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <h2>QIMS</h2>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li>
+                <i class="fa-solid fa-plus"></i>
+                New Inspection
+            </li>
+
+            <li>
+                <i class="fa-solid fa-list"></i>
+                Inspection Records
+            </li>
+
+            <li>
+                <i class="fa-solid fa-file-lines"></i>
+                Reports
+            </li>
+
+            <li>
+                <i class="fa-solid fa-book"></i>
+                Defect Library
+            </li>
+
+            <li>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <!-- Top Bar -->
+
+        <div class="topbar">
+
+            <h1>Dashboard</h1>
+
+            <div class="top-right">
+
+                <input
+                type="text"
+                placeholder="Search Inspection...">
+
+                <span class="date">
+                    05 July 2026
+                </span>
+
+                <div class="profile">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Admin
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Cards will come here -->
+<!-- Dashboard Cards -->
+
+<div class="cards">
+
+    <div class="card">
+
+        <i class="fa-solid fa-clipboard-check"></i>
+
+        <h3>Total Inspection</h3>
+
+        <h2>120</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h3>Passed Tyres</h3>
+
+        <h2>115</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-circle-xmark"></i>
+
+        <h3>Rejected Tyres</h3>
+
+        <h2>5</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-clock"></i>
+
+        <h3>Pending Inspection</h3>
+
+        <h2>3</h2>
+
+    </div>
+
+    <div class="card">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <h3>Quality Rate</h3>
+
+        <h2>95.83%</h2>
+
+    </div>
+
+</div>
+
+
+<!-- Recent Inspection -->
+
+<div class="table-section">
+
+    <h2>Recent Inspections</h2>
+<div class="table-container">
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Inspection ID</th>
+
+                <th>Article No.</th>
+
+                <th>Size</th>
+
+                <th>TU</th>
+
+                <th>TG</th>
+
+                <th>TB</th>
+
+                <th>Result</th>
+
+                <th>Inspector</th>
+
+                <th>Date</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            <tr>
+
+                <td>QI001</td>
+
+                <td>ART1025</td>
+
+                <td>205/55 R16</td>
+
+                <td>Pass</td>
+
+                <td>Pass</td>
+
+                <td>Pass</td>
+
+                <td><span class="status passed">Passed</span></td>
+
+                <td>Deepali</td>
+
+                <td>05-07-2026</td>
+
+            </tr>
+
+            <tr>
+
+                <td>QI002</td>
+
+                <td>ART1040</td>
+
+                <td>215/60 R17</td>
+
+                <td>Pass</td>
+
+                <td>Fail</td>
+
+                <td>Pass</td>
+
+                <td><span class="status rejected">Rejected</span></td>
+
+                <td>Rahul</td>
+
+                <td>05-07-2026</td>
+
+            </tr>
+
+            <tr>
+
+                <td>QI003</td>
+
+                <td>ART1085</td>
+
+                <td>195/65 R15</td>
+
+                <td>Pass</td>
+
+                <td>Pass</td>
+
+                <td>Pass</td>
+
+                <td><span class="status passed">Passed</span></td>
+
+                <td>Aman</td>
+
+                <td>05-07-2026</td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+<div class="pagination">
+
+    <button>Previous</button>
+
+    <button class="active-page">1</button>
+
+    <button>2</button>
+
+    <button>3</button>
+
+    <button>Next</button>
+
+</div>
+</div>
+<!-- Graph Section -->
+
+<div class="graph-section">
+
+    <div class="graph-card">
+
+        <h2>Inspection Trend</h2>
+
+        <canvas id="lineChart"></canvas>
+
+    </div>
+
+    <div class="graph-card">
+
+        <h2>Inspection Result</h2>
+
+        <canvas id="pieChart"></canvas>
+
+    </div>
+
+</div>
+    </div>
+
+</div>
+
+<script src="../static/js/dashboard.js"></script>
+
+</body>
+
+</html>
