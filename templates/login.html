@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | QIMS</title>
+
+    <link rel="stylesheet" href="../static/css/login.css">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="signup-container">
+
+    <div class="signup-card">
+
+       <div class="logo">
+
+    <h1>QIMS</h1>
+
+    <p>Quality Inspection Management System</p>
+
+</div>
+        <h2>Welcome Back</h2>
+
+        <p class="subtitle">
+            Login to continue to your inspection dashboard.
+        </p>
+
+        <form>
+
+            <label>Username</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-user"></i>
+
+                <input
+                type="text"
+                placeholder="Enter Username"
+                required>
+
+            </div>
+
+            <label>Password</label>
+
+            <div class="input-box">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <input
+                type="password"
+                id="loginPassword"
+                placeholder="Enter Password"
+                required>
+
+                <i
+                class="fa-solid fa-eye eye"
+                onclick="toggleLoginPassword()"></i>
+
+            </div>
+
+            <div class="login-options">
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Remember Me
+
+                </label>
+
+                <a href="#">Forgot Password?</a>
+
+            </div>
+
+            <button type="submit">
+
+                Login
+
+            </button>
+
+        </form>
+
+        <div class="login-link">
+
+            Don't have an account?
+
+            <a href="signup.html">
+
+                Create Account
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../static/js/script.js"></script>
+
+</body>
+
+</html>
