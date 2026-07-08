@@ -450,4 +450,22 @@ width:100%;
     background:#f39c12;
 
 }
+}.sidebar ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+}
+
+.sidebar ul li a:hover{
+
+    color:white;
+
 }

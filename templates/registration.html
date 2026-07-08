@@ -4,12 +4,15 @@
 <head>
 
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Registration Code Verification</title>
+    <title>Registration Code Verification | QIMS</title>
 
     <link rel="stylesheet" href="../static/css/registration.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -19,29 +22,87 @@
     <header>
 
         <div class="logo">
-
-            <h2>🛞 QIMS</h2>
-
+            <h2> QIMS</h2>
         </div>
 
         <nav>
-
             <a href="contact.html">Contact Us</a>
-
         </nav>
 
     </header>
 
-    <!-- Registration Section -->
+    <!-- Main Section -->
 
-    <section class="registration-section">
+    <section class="main-container">
 
-        <div class="registration-box">
+        <!-- Left Information Card -->
+
+        <div class="info-card">
+
+            <h2>Why Registration Code Verification?</h2>
+
+            <p>
+                Before creating a new account, every user must verify a valid
+                Registration Code. This verification helps ensure that only
+                approved users can access the Quality Inspection Management System.
+            </p>
+
+            <h3>Key Benefits</h3>
+
+            <ul>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Only approved users can create an account.
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Prevents unauthorized access.
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Protects confidential inspection records.
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Ensures secure user registration.
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Maintains system integrity.
+                </li>
+
+            </ul>
+
+            <div class="security-box">
+
+                <h3>
+                    <i class="fa-solid fa-shield-halved"></i>
+                    Security Notice
+                </h3>
+
+                <p>
+                    Registration Codes are issued only by the
+                    <strong>System Administrator.</strong>
+                    Please do not share your Registration Code with anyone.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Right Form Card -->
+
+        <div class="registration-card">
 
             <h1>Registration Code Verification</h1>
 
-            <p>
-                Enter your Secret Registration Code to create a new account.
+            <p class="subtitle">
+                Verify your Registration Code before creating your QIMS account.
             </p>
 
             <form>
@@ -51,15 +112,13 @@
                 <input
                     type="password"
                     id="secretCode"
-                    placeholder="Enter Secret Registration Code"
-                >
+                    placeholder="Enter Registration Code">
 
                 <div class="show-password">
 
                     <input
                         type="checkbox"
-                        id="showCode"
-                    >
+                        id="showCode">
 
                     <label for="showCode">
                         Show Registration Code
@@ -70,39 +129,37 @@
                 <button
                     type="button"
                     onclick="verifyCode()"
-                    class="btn"
-                >
-                    Verify Code
+                    class="btn">
+
+                    Verify & Continue
+
                 </button>
 
-                <p
-                    id="message"
-                    class="error-message"
-                ></p>
+                <p id="message" class="message"></p>
 
             </form>
 
-            <br>
+            <div class="login-link">
 
-            <p>
+                Already have an account?
 
-                Already Registered?
-
-                <a href="login.html">
+                <a href="/login">
 
                     Login Here
 
                 </a>
 
-            </p>
+            </div>
 
         </div>
 
     </section>
 
+    <!-- Footer -->
+
     <footer>
 
-        © 2026 Digital Tyre Quality Inspection Management System
+        © 2026 Digital Quality Inspection Management System
 
     </footer>
 

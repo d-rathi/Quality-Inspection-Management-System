@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>New Inspection | QIMS</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/inspection.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2> QIMS</h2>
+
+        <ul>
+
+            <li><a href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+            <li class="active">
+                <a href="/inspection">
+                    <i class="fa-solid fa-clipboard-check"></i>
+                    New Inspection
+                </a>
+            </li>
+
+            <li>
+                <a href="/records">
+                    <i class="fa-solid fa-table"></i>
+                    Inspection Records
+                </a>
+            </li>
+
+            <li>
+                <a href="/report">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    Profile
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <header class="topbar">
+
+            <h1>New Tyre Inspection</h1>
+
+            <p> Quality Inspection Management System</p>
+
+        </header>
+
+        <!-- Form Card -->
+
+        <div class="form-card">
+
+            <h2>
+
+                <i class="fa-solid fa-clipboard-check"></i>
+
+                Inspection Details
+
+            </h2>
+
+            <form action="/inspection" method="POST">
+
+                <div class="form-grid"><!-- Tyre ID -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-barcode"></i>
+        Tyre ID
+    </label>
+
+    <input
+        type="text"
+        id="tyre_id"
+        name="tyre_id"
+        placeholder="Enter Tyre ID"
+        required>
+
+</div>
+
+<!-- Article Number -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-hashtag"></i>
+        Article Number
+    </label>
+
+    <input
+        type="text"
+        id="article_number"
+        name="article_number"
+        placeholder="Enter Article Number"
+        required>
+
+</div>
+
+<!-- Tyre Size -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-ruler"></i>
+        Tyre Size
+    </label>
+
+    <input
+        type="text"
+        id="tyre_size"
+        name="tyre_size"
+        placeholder="Example: 205/55 R16"
+        required>
+
+</div>
+
+<!-- Pattern -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-circle-dot"></i>
+        Pattern Name
+    </label>
+
+    <input
+        type="text"
+        id="pattern"
+        name="pattern"
+        placeholder="Enter Pattern Name"
+        required>
+
+</div>
+
+<!-- Batch Number -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-layer-group"></i>
+        Batch Number
+    </label>
+
+    <input
+        type="text"
+        id="batch_number"
+        name="batch_number"
+        placeholder="Enter Batch Number">
+
+</div>
+
+<!-- Inspector -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-user"></i>
+        Inspector Name
+    </label>
+
+    <input
+        type="text"
+        id="inspector"
+        name="inspector"
+        placeholder="Inspector Name"
+        required>
+
+</div>
+
+<!-- Inspection Date -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-calendar-days"></i>
+        Inspection Date
+    </label>
+
+    <input
+        type="date"
+        id="inspection_date"
+        name="inspection_date"
+        required>
+
+</div>
+
+<!-- Shift -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-clock"></i>
+        Shift
+    </label>
+
+    <select
+        id="shift"
+        name="shift"
+        required>
+
+        <option value="">Select Shift</option>
+
+        <option>Morning</option>
+
+        <option>Evening</option>
+
+        <option>Night</option>
+
+    </select>
+
+</div>
+
+<!-- Machine -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-gears"></i>
+        Machine Name
+    </label>
+
+    <select
+        id="machine"
+        name="machine"
+        required>
+
+        <option value="">Select Machine</option>
+
+        <option>Uniformity Machine</option>
+
+        <option>Dynamic Balancing Machine</option>
+
+        <option>Geometry Machine</option>
+
+    </select>
+
+</div>
+
+<!-- Status -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-circle-check"></i>
+        Inspection Status
+    </label>
+
+    <select
+        id="status"
+        name="status"
+        required>
+
+        <option value="">Select Status</option>
+
+        <option>Pass</option>
+
+        <option>Fail</option>
+
+    </select>
+
+</div>
+
+<!-- Defect Category -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        Defect Category
+    </label>
+
+    <select
+        id="defect_category"
+        name="defect_category">
+
+        <option value="">Select Category</option>
+
+        <option>Uniformity Defect</option>
+
+        <option>Balancing Defect</option>
+
+        <option>Geometry Defect</option>
+
+        <option>Visual Defect</option>
+
+        <option>Bead Defect</option>
+
+        <option>Sidewall Defect</option>
+
+        <option>Tread Defect</option>
+
+        <option>Other</option>
+
+    </select>
+
+</div>
+
+<!-- Severity -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-signal"></i>
+        Severity
+    </label>
+
+    <select
+        id="severity"
+        name="severity">
+
+        <option value="">Select Severity</option>
+
+        <option>Low</option>
+
+        <option>Medium</option>
+
+        <option>High</option>
+
+        <option>Critical</option>
+
+    </select>
+
+</div>
+
+<!-- Defect Description -->
+
+<div class="form-group full-width">
+
+    <label>
+        <i class="fa-solid fa-file-circle-exclamation"></i>
+        Defect Description
+    </label>
+
+    <textarea
+        id="defect_description"
+        name="defect_description"
+        rows="4"
+        placeholder="Describe the defect"></textarea>
+
+</div>
+
+<!-- Remarks -->
+
+<div class="form-group full-width">
+
+    <label>
+        <i class="fa-solid fa-comment"></i>
+        Remarks
+    </label>
+
+    <textarea
+        id="remarks"
+        name="remarks"
+        rows="4"
+        placeholder="Additional Remarks"></textarea>
+
+</div>
+
+<!-- Final Decision -->
+
+<div class="form-group">
+
+    <label>
+        <i class="fa-solid fa-clipboard-check"></i>
+        Final Decision
+    </label>
+
+    <select
+        id="final_decision"
+        name="final_decision">
+
+        <option value="">Select Decision</option>
+
+        <option>Accepted</option>
+
+        <option>Rejected</option>
+
+        <option>Rework Required</option>
+
+    </select>
+
+</div>                </div>
+
+                <!-- Action Buttons -->
+
+                <div class="button-group">
+
+                    <button
+                        type="submit"
+                        class="save-btn">
+
+                        <i class="fa-solid fa-floppy-disk"></i>
+
+                        Save Inspection
+
+                    </button>
+
+                    <button
+                        type="reset"
+                        class="reset-btn">
+
+                        <i class="fa-solid fa-rotate-left"></i>
+
+                        Reset Form
+
+                    </button>
+
+                    <a
+                        href="/dashboard"
+                        class="back-btn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Back to Dashboard
+
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+<script src="{{ url_for('static', filename='js/inspection.js') }}"></script>
+</body>
+
+</html>

@@ -35,7 +35,7 @@
             Create your account to access the Quality Inspection Management System.
         </p>
 
-        <form>
+       <form action="/signup" method="POST">
 
             <label>Full Name</label>
 
@@ -44,12 +44,24 @@
                 <i class="fa-solid fa-user"></i>
 
                 <input
-                    type="text"
-                    placeholder="Enter Full Name"
-                    required>
+                   type="text"
+                   name="fullname"
+                   placeholder="Enter Full Name"
+                   required>
+            </div>
+           <label>Email Address</label>
+
+            <div class="input-box">
+
+               <i class="fa-solid fa-envelope"></i>
+
+               <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email Address"
+                   required>
 
             </div>
-
 
             <label>Username</label>
 
@@ -58,9 +70,10 @@
                 <i class="fa-solid fa-user"></i>
 
                 <input
-                    type="text"
-                    placeholder="Enter Username"
-                    required>
+                   type="text"
+                   name="username"
+                   placeholder="Enter Username"
+                   required>
 
             </div>
 
@@ -72,9 +85,10 @@
                 <i class="fa-solid fa-lock"></i>
 
                 <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter Password"
+                   type="password"
+                   id="password"
+                   name="password"
+                   placeholder="Enter Password"
                     required>
 
                 <i
@@ -91,11 +105,11 @@
                 <i class="fa-solid fa-lock"></i>
 
                 <input
-                    type="password"
-                    id="confirmPassword"
-                    placeholder="Confirm Password"
-                    required>
-
+                   type="password"
+                   id="confirmPassword"
+                   name="confirmPassword"
+                   placeholder="Confirm Password"
+                   required>
                 <i
                     class="fa-solid fa-eye eye"
                     onclick="toggleConfirmPassword()"></i>
@@ -112,7 +126,55 @@
                 </span>
 
             </div>
+<!-- Account Information -->
 
+          <div class="info-box">
+
+    <h3>
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        Account Information
+
+    </h3>
+
+    <ul>
+
+    <li>
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        Use your official email address.
+
+    </li>
+
+    <li>
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        All fields are mandatory.
+
+    </li>
+
+    <li>
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        Choose a strong password for better security.
+
+    </li>
+
+    <li>
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        Your information will be securely managed within QIMS.
+
+    </li>
+
+</ul>
+
+</div>
 
             <button
                 type="submit"
@@ -121,7 +183,7 @@
                 Create Account
 
             </button>
-
+            <p id="signupMessage" class="message"></p>
         </form>
 
 
@@ -129,7 +191,7 @@
 
             Already have an account?
 
-            <a href="login.html">
+            <a href="/login">
 
                 Login
 

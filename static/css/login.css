@@ -364,4 +364,143 @@ transform:translateY(0);
 
 }
 
+}/* ==========================
+   Login Information Box
+========================== */
+
+.login-info{
+
+    background:#EEF5FF;
+
+    border-left:5px solid #123c73;
+
+    border-radius:10px;
+
+    padding:18px;
+
+    margin:25px 0;
+
+}
+
+.login-info h3{
+
+    color:#123c73;
+
+    margin-bottom:12px;
+
+    font-size:18px;
+
+}
+
+.login-info h3 i{
+
+    margin-right:8px;
+
+}
+
+.login-info ul{
+
+    list-style:none;
+
+    padding-left:0;
+
+}
+
+.login-info ul li{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+    line-height:1.6;
+
+    color:#555;
+
+}
+
+.login-info ul li i{
+
+    color:#2E7D32;
+
+    margin-top:3px;
+
+}
+
+
+/* ==========================
+   Login Message
+========================== */
+
+.message{
+
+    margin-top:18px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    border-radius:8px;
+
+}
+
+/* Success */
+
+.success{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    border:1px solid #81C784;
+
+    padding:12px;
+
+}
+
+/* Error */
+
+.error{
+
+    background:#FFEBEE;
+
+    color:#C62828;
+
+    border:1px solid #EF9A9A;
+
+    padding:12px;
+
+}
+
+/* Warning */
+
+.warning{
+
+    background:#FFF8E1;
+
+    color:#EF6C00;
+
+    border:1px solid #FFCC80;
+
+    padding:12px;
+
+}.login-btn{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    background:#005BAC;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.login-btn:hover{
+    background:#00448a;
 }

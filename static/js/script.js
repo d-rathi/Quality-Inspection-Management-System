@@ -17,18 +17,48 @@ if (showCode && secretCode) {
 
 function verifyCode() {
 
-    const code = document.getElementById("secretCode").value;
+    const code = document.getElementById("secretCode").value.trim();
 
     const message = document.getElementById("message");
 
-    if (code === "QIMS2026") {
+    // Remove previous classes
+    message.className = "message";
 
-        window.location.href = "signup.html";
+    // Empty Input
+    if (code === "") {
+
+        message.classList.add("warning");
+
+        message.innerHTML =
+        "⚠ Please enter the Registration Code.";
+
+        return;
 
     }
+
+    // Correct Code
+    if (code === "QIMS2026") {
+
+        message.classList.add("success");
+
+        message.innerHTML =
+        "✔ Verification Successful!<br>Redirecting to Account Registration...";
+
+        setTimeout(function () {
+
+            window.location.href = "/signup";
+
+        }, 1500);
+
+    }
+
+    // Wrong Code
     else {
 
-        message.innerHTML = "Invalid Registration Code";
+        message.classList.add("error");
+
+        message.innerHTML =
+        "✖ Verification Failed!<br>Please enter a valid Registration Code.";
 
     }
 
@@ -64,20 +94,19 @@ function toggleConfirmPassword(){
 
 }
 
-
-
 // ============================
 // Login Page
 // ============================
 
-function toggleLoginPassword(){
+function toggleLoginPassword() {
 
-    const login=document.getElementById("loginPassword");
+    const password = document.getElementById("loginPassword");
 
-    if(login){
-
-        login.type=login.type==="password" ? "text" : "password";
-
+    if (password.type === "password") {
+        password.type = "text";
+    } else {
+        password.type = "password";
     }
 
 }
+

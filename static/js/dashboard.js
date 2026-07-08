@@ -172,7 +172,7 @@ let confirmLogout=confirm("Are you sure you want to logout?");
 
 if(confirmLogout){
 
-window.location.href="login.html";
+window.location.href="/login";
 
 }
 
