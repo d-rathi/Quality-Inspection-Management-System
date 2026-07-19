@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Raise a Defect | QIMS</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/defect.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>QIMS</h2>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/defect">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Raise Defect
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <div class="topbar">
+
+            <h1>
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                Raise a Defect
+
+            </h1>
+
+            <p>
+
+                Record defect details for the failed tire inspection.
+
+            </p>
+
+        </div>
+
+        <div class="form-card">
+
+            <h2>Defect Information</h2>
+
+            <form action="/defect" method="POST">
+<input type="hidden" name="inspection_id" value="{{ inspection_id }}">
+                <div class="form-grid"><!-- Tire Information -->
+
+<div class="section-title">
+
+    <i class="fa-solid fa-circle-info"></i>
+
+    Tire Information
+
+</div>
+
+<!-- Tire ID -->
+
+<div class="form-group">
+
+    <label>
+
+        Tire ID <span class="required">*</span>
+
+    </label>
+
+    <input
+       type="text"
+       id="tire_id"
+       name="tire_id"
+       value="{{ tire_id }}"
+       readonly>
+
+</div>
+
+<!-- Article Number -->
+
+<div class="form-group">
+
+    <label>
+
+        Article Number <span class="required">*</span>
+
+    </label>
+
+    <input
+       type="text"
+       id="article_number"
+       name="article_number"
+       value="{{ article_number }}"
+       readonly>
+
+</div>
+
+
+<!-- Defect Details -->
+
+<div class="section-title">
+
+    <i class="fa-solid fa-triangle-exclamation"></i>
+
+    Defect Details
+
+</div>
+
+<!-- Defect Category -->
+
+<div class="form-group">
+
+    <label>
+
+        Defect Category <span class="required">*</span>
+
+    </label>
+
+    <select
+        id="defect_category"
+        name="defect_category"
+        required>
+
+        <option value="">Select Category</option>
+
+        <option value="Uniformity Defect">Uniformity Defect</option>
+
+        <option value="Balancing Defect">Balancing Defect</option>
+
+        <option value="Geometry Defect">Geometry Defect</option>
+
+        <option value="Visual Defect">Visual Defect</option>
+
+        <option value="Sidewall Defect">Sidewall Defect</option>
+
+        <option value="Bead Defect">Bead Defect</option>
+
+        <option value="Tread Defect">Tread Defect</option>
+
+    </select>
+
+</div>
+
+<!-- Severity -->
+
+<div class="form-group">
+
+    <label>
+
+        Severity <span class="required">*</span>
+
+    </label>
+
+    <select
+        id="severity"
+        name="severity"
+        required>
+
+        <option value="">Select Severity</option>
+
+        <option value="Low">Low</option>
+
+        <option value="Medium">Medium</option>
+
+        <option value="High">High</option>
+
+        <option value="Critical">Critical</option>
+
+    </select>
+
+</div>
+
+<!-- Defect Date -->
+
+<div class="form-group">
+
+    <label>
+
+        Defect Date <span class="required">*</span>
+
+    </label>
+       <input
+          type="date"
+          id="defect_date"
+          name="defect_date"
+          value="{{ defect_date }}"
+          readonly>
+   </div>
+
+<!-- Defect Raised By -->
+
+<div class="form-group">
+
+    <label>
+
+        Defect Raised By <span class="required">*</span>
+
+    </label>
+
+    <input
+       type="text"
+       id="raised_by"
+       name="raised_by"
+       value="{{ raised_by }}"
+       readonly>
+</div>
+
+<!-- Defect Description -->
+
+<div class="form-group full-width">
+
+    <label>
+
+        Defect Description <span class="required">*</span>
+
+    </label>
+
+    <textarea
+        id="defect_description"
+        name="defect_description"
+        rows="5"
+        placeholder="Describe the defect..."
+        required></textarea>
+
+</div><!-- Information Note -->
+
+<div class="form-note">
+
+    <i class="fa-solid fa-circle-info"></i>
+
+    Please ensure all defect details are accurate before saving. This information will be used for quality tracking and defect analysis.
+
+</div>
+
+<!-- Action Buttons -->
+
+<div class="button-group">
+
+    <button
+        type="submit"
+        class="save-btn">
+
+        Save Defect
+
+    </button>
+
+    <button
+        type="reset"
+        class="reset-btn">
+
+        Reset
+
+    </button>
+
+</div>
+
+<a
+    href="/inspection"
+    class="back-btn">
+
+    <i class="fa-solid fa-arrow-left"></i>
+
+    Back to Inspection
+
+</a>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/defect.js') }}"></script>
+
+</body>
+
+</html>

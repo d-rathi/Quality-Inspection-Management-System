@@ -1,4 +1,10 @@
 /* ===========================
+   Google Font
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
    GENERAL
 =========================== */
 
@@ -6,11 +12,11 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:"Segoe UI",sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:#f4f7fb;
+    background:#f4f7fc;
 }
 
 /* ===========================
@@ -27,20 +33,19 @@ body{
 =========================== */
 
 .sidebar{
-    width:260px;
-    background:#0B5CAD;
-    color:white;
-    padding:30px 20px;
+    width:250px;
+    background:#123c73;
+    color:#fff;
+    padding:25px 20px;
     position:fixed;
-    top:0;
-    left:0;
     height:100vh;
 }
 
 .sidebar h2{
     text-align:center;
-    margin-bottom:40px;
+    margin-bottom:35px;
     font-size:28px;
+    letter-spacing:1px;
 }
 
 .sidebar ul{
@@ -48,37 +53,37 @@ body{
 }
 
 .sidebar ul li{
-    margin-bottom:18px;
+    margin-bottom:10px;
 }
 
 .sidebar ul li a{
     text-decoration:none;
     color:white;
-    display:block;
-    padding:14px 18px;
-    border-radius:10px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+    border-radius:8px;
     transition:.3s;
     font-size:16px;
 }
 
-.sidebar ul li a i{
-    margin-right:12px;
+.sidebar ul li a:hover{
+    background:#1f5aa6;
 }
 
-.sidebar ul li a:hover,
 .sidebar ul li.active a{
-    background:white;
-    color:#0B5CAD;
+    background:#2d7ff9;
 }
 
 /* ===========================
-   CONTENT
+   MAIN CONTENT
 =========================== */
 
 .content{
-    margin-left:260px;
-    width:100%;
-    padding:35px;
+    margin-left:250px;
+    width:calc(100% - 250px);
+    padding:30px;
 }
 
 /* ===========================
@@ -86,20 +91,21 @@ body{
 =========================== */
 
 .topbar{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
-    margin-bottom:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
 }
 
 .topbar h1{
-    color:#0B5CAD;
+    color:#123c73;
+    font-size:30px;
 }
 
 .topbar p{
-    margin-top:8px;
-    color:#666;
+    color:#555;
+    margin-top:5px;
+    font-size:15px;
 }
 
 /* ===========================
@@ -107,57 +113,38 @@ body{
 =========================== */
 
 .form-card{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:15px;
-
-    box-shadow:0 6px 18px rgba(0,0,0,.08);
-
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 .form-card h2{
-
-    color:#0B5CAD;
-
+    color:#123c73;
     margin-bottom:25px;
-
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
-
 /* ===========================
    SECTION TITLE
 =========================== */
 
 .section-title{
-
     grid-column:1/-1;
-
-    margin-top:25px;
-
-    margin-bottom:8px;
-
-    padding:12px 15px;
-
-    background:#EAF3FF;
-
-    border-left:5px solid #0B5CAD;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    color:#0B5CAD;
-
+    background:#f5f9ff;
+    border-left:5px solid #2d7ff9;
+    color:#123c73;
+    padding:14px 18px;
     border-radius:8px;
-
+    font-size:18px;
+    font-weight:600;
+    margin:15px 0 10px;
 }
 
 .section-title i{
-
     margin-right:10px;
-
+    color:#2d7ff9;
 }
 
 /* ===========================
@@ -165,13 +152,9 @@ body{
 =========================== */
 
 .form-grid{
-
     display:grid;
-
     grid-template-columns:repeat(2,1fr);
-
     gap:22px;
-
 }
 
 /* ===========================
@@ -179,17 +162,12 @@ body{
 =========================== */
 
 .form-group{
-
     display:flex;
-
     flex-direction:column;
-
 }
 
 .full-width{
-
     grid-column:1/-1;
-
 }
 
 /* ===========================
@@ -197,19 +175,19 @@ body{
 =========================== */
 
 .form-group label{
-
+    font-size:15px;
     font-weight:600;
-
+    color:#123c73;
     margin-bottom:8px;
+}
 
-    color:#333;
-
+.form-group label i{
+    color:#2d7ff9;
+    margin-right:6px;
 }
 
 .required{
-
-    color:red;
-
+    color:#dc3545;
 }
 
 /* ===========================
@@ -221,23 +199,21 @@ body{
 .form-group textarea{
 
     width:100%;
-
     padding:12px 15px;
-
-    border:1px solid #ccc;
-
+    border:1px solid #d6dce8;
     border-radius:8px;
-
-    font-size:15px;
-
+    background:#fff;
+    font-size:14px;
     transition:.3s;
-
 }
 
 .form-group textarea{
-
     resize:none;
+}
 
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+    color:#999;
 }
 
 .form-group input:focus,
@@ -245,10 +221,8 @@ body{
 .form-group textarea:focus{
 
     outline:none;
-
-    border-color:#0B5CAD;
-
-    box-shadow:0 0 8px rgba(11,92,173,.2);
+    border-color:#2d7ff9;
+    box-shadow:0 0 8px rgba(45,127,249,.20);
 
 }
 
@@ -257,153 +231,202 @@ body{
 =========================== */
 
 .form-note{
-
     margin-top:25px;
-
-    padding:15px;
-
-    background:#FFF8E6;
-
-    border-left:5px solid orange;
-
+    background:#fff8e6;
+    border-left:5px solid #f39c12;
+    padding:16px;
     border-radius:8px;
-
-    color:#444;
-
+    color:#555;
+    line-height:1.6;
 }
 
 .form-note i{
-
-    color:orange;
-
+    color:#f39c12;
     margin-right:8px;
+}
+/* ===========================
+   BUTTON GROUP
+=========================== */
 
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
 }
 
 /* ===========================
    BUTTONS
 =========================== */
 
-.button-group{
-
-    display:flex;
-
-    gap:18px;
-
-    margin-top:30px;
-
-}
-
 .save-btn,
-.reset-btn,
-.back-btn{
+.defect-btn,
+.reset-btn{
 
-    padding:14px 28px;
-
+    padding:12px 22px;
     border:none;
-
     border-radius:8px;
-
-    text-decoration:none;
-
-    color:white;
-
-    cursor:pointer;
-
     font-size:15px;
-
+    font-weight:600;
+    cursor:pointer;
     transition:.3s;
-
 }
+
+/* Save */
 
 .save-btn{
 
-    background:#0B5CAD;
-
+    background:#123c73;
+    color:#fff;
 }
 
 .save-btn:hover{
 
-    background:#08498b;
-
+    background:#1f5aa6;
 }
+
+/* Raise Defect */
+
+.defect-btn{
+
+    background:#dc3545;
+    color:#fff;
+}
+
+.defect-btn:hover:not(:disabled){
+
+    background:#b52a37;
+}
+
+.defect-btn:disabled{
+
+    background:#cfcfcf;
+    color:#777;
+    cursor:not-allowed;
+}
+
+/* Reset */
 
 .reset-btn{
 
     background:#f39c12;
-
+    color:#fff;
 }
 
 .reset-btn:hover{
 
     background:#d68910;
-
 }
+
+/* ===========================
+   BACK BUTTON
+=========================== */
 
 .back-btn{
 
-    background:#6c757d;
-
-    display:flex;
-
+    display:inline-flex;
     align-items:center;
+    gap:8px;
 
-    justify-content:center;
+    margin-top:20px;
 
+    background:#6c757d;
+    color:#fff;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    transition:.3s;
 }
 
 .back-btn:hover{
 
     background:#545b62;
-
 }
 
 /* ===========================
    RESPONSIVE
 =========================== */
 
-@media(max-width:900px){
+@media(max-width:1200px){
 
-    .sidebar{
+.form-grid{
 
-        width:220px;
+grid-template-columns:1fr;
 
-    }
-
-    .content{
-
-        margin-left:220px;
-
-    }
-
-    .form-grid{
-
-        grid-template-columns:1fr;
-
-    }
+}
 
 }
 
 @media(max-width:768px){
 
-    .sidebar{
+.sidebar{
 
-        display:none;
+width:80px;
 
-    }
+padding:20px 10px;
 
-    .content{
+}
 
-        margin-left:0;
+.sidebar h2{
 
-        padding:20px;
+display:none;
 
-    }
+}
 
-    .button-group{
+.sidebar ul li a{
 
-        flex-direction:column;
+justify-content:center;
 
-    }
+font-size:0;
+
+}
+
+.sidebar ul li a i{
+
+font-size:18px;
+
+margin-right:0;
+
+}
+
+.content{
+
+margin-left:80px;
+
+width:calc(100% - 80px);
+
+padding:20px;
+
+}
+
+.topbar{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.button-group{
+
+flex-direction:column;
+
+}
+
+.save-btn,
+.defect-btn,
+.reset-btn,
+.back-btn{
+
+width:100%;
+justify-content:center;
+
+}
 
 }

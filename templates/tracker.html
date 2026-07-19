@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Defect Tracker | QIMS</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/tracker.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/inspection">
+                    <i class="fa-solid fa-plus"></i>
+                    New Inspection
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/tracker">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Defect Tracker
+                </a>
+            </li>
+
+            <li>
+                <a href="/defect-library">
+                    <i class="fa-solid fa-book"></i>
+                    Defect Library
+                </a>
+            </li>
+
+            <li>
+                <a href="/report">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Defect Tracker</h1>
+
+            <div class="top-right">
+
+                <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Defect...">
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+                <i class="fa-solid fa-bug"></i>
+                <h3>Total Defects</h3>
+                <h2>{{ total }}</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <h3>High Severity</h3>
+                <h2>{{ high }}</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <h3>Medium Severity</h3>
+                <h2>{{ medium }}</h2>
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-circle-info"></i>
+                <h3>Low Severity</h3>
+                <h2>{{ low }}</h2>
+            </div>
+
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-section">
+
+            <h2>Defect Records</h2>
+
+            <div class="table-container">
+
+                <table id="trackerTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Tire ID</th>
+                            <th>Article</th>
+                            <th>Category</th>
+                            <th>Severity</th>
+                            <th>Raised By</th>
+                            <th>Date</th>
+                            <th>Description</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                    {% for row in defects %}
+
+                    <tr>
+
+                        <td>{{ row[0] }}</td>
+
+                        <td>{{ row[1] }}</td>
+
+                        <td>{{ row[2] }}</td>
+
+                        <td>{{ row[3] }}</td>
+
+                        <td>
+
+                        {% if row[4]=="High" %}
+                            <span class="high">{{ row[4] }}</span>
+
+                        {% elif row[4]=="Medium" %}
+                            <span class="medium">{{ row[4] }}</span>
+
+                        {% else %}
+                            <span class="low">{{ row[4] }}</span>
+
+                        {% endif %}
+
+                        </td>
+
+                        <td>{{ row[6] }}</td>
+
+                        <td>{{ row[5] }}</td>
+
+                        <td>{{ row[7] }}</td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/tracker.js') }}"></script>
+
+</body>
+
+</html>

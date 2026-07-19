@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inspection Report | QIMS</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/report.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= Sidebar ================= -->
+
+    <div class="sidebar">
+
+        <h2>QIMS</h2>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/inspection">
+                    <i class="fa-solid fa-plus"></i>
+                    New Inspection
+                </a>
+            </li>
+
+            <li>
+                <a href="/records">
+                    <i class="fa-solid fa-list"></i>
+                    Inspection Records
+                </a>
+            </li>
+
+            <li>
+                <a href="/tracker">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Defect Tracker
+                </a>
+            </li>
+
+            <li>
+                <a href="/defect-library">
+                    <i class="fa-solid fa-book-open"></i>
+                    Defect Library
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/report">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- ================= Main Content ================= -->
+
+    <div class="main-content">
+
+        <!-- Everything inside this div will be printed -->
+        <div id="print-area">
+
+            <!-- ================= Topbar ================= -->
+
+            <div class="topbar">
+
+                <div>
+
+                    <h1>Inspection Report</h1>
+
+                    <p class="subtitle">
+                        Quality Inspection Management System
+                    </p>
+
+                </div>
+
+                <div class="top-right">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search inspection...">
+
+                    <div class="profile">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        {{ username }}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- ================= Summary Cards ================= -->
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <i class="fa-solid fa-clipboard-check"></i>
+
+                    <h3>Total Inspection</h3>
+
+                    <h2>{{ total }}</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                    <h3>Passed Tyres</h3>
+
+                    <h2>{{ passed }}</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-circle-xmark"></i>
+
+                    <h3>Rejected Tyres</h3>
+
+                    <h2>{{ failed }}</h2>
+
+                </div>
+
+                <div class="card">
+
+                    <i class="fa-solid fa-chart-line"></i>
+
+                    <h3>Quality Rate</h3>
+
+                    <h2>{{ quality_rate }}%</h2>
+
+                </div>
+
+            </div>
+
+            <!-- ================= Filter Section ================= -->
+
+            <div class="report-filter">
+
+                <form action="/report" method="GET">
+
+                    <div class="filter-box">
+
+                        <label>Select Date</label>
+
+                        <input
+                            type="date"
+                            name="date"
+                            value="{{ selected_date }}">
+
+                    </div>
+
+                    <div class="filter-buttons">
+
+                        <button
+                            class="btn-filter"
+                            type="submit">
+
+                            <i class="fa-solid fa-filter"></i>
+
+                            Apply Filter
+
+                        </button>
+
+                        <a
+                            href="/report"
+                            class="btn-reset">
+
+                            <i class="fa-solid fa-rotate"></i>
+
+                            Reset
+
+                        </a>
+
+                        <button
+                            type="button"
+                            class="btn-download"
+                            onclick="window.print()">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                            Download PDF
+
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- ================= Charts ================= -->
+
+            <div class="graph-section">
+
+                <div class="graph-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                        Inspection Trend
+
+                    </h2>
+
+                    <canvas id="trendChart"></canvas>
+
+                </div>
+
+                <div class="graph-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-chart-pie"></i>
+
+                        Pass vs Reject
+
+                    </h2>
+
+                    <canvas id="resultChart"></canvas>
+
+                </div>
+
+            </div>            <!-- ================= Inspection Records ================= -->
+
+            <div class="table-section">
+
+                <h2>
+
+                    <i class="fa-solid fa-table"></i>
+
+                    Inspection Records
+
+                </h2>
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>ID</th>
+                                <th>Tyre ID</th>
+                                <th>Article No.</th>
+                                <th>Tyre Size</th>
+                                <th>Inspector</th>
+                                <th>Status</th>
+                                <th>Date</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                        {% for row in report_data %}
+
+                        <tr>
+
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+
+                            <td>
+
+                                {% if row[5] == "Pass" %}
+
+                                <span class="status passed">
+
+                                    Pass
+
+                                </span>
+
+                                {% else %}
+
+                                <span class="status rejected">
+
+                                    Fail
+
+                                </span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>{{ row[6] }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <!-- ================= Defect Charts ================= -->
+
+            <div class="graph-section">
+
+                <div class="graph-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+
+                        Top 5 Defects
+
+                    </h2>
+
+                    <canvas id="defectChart"></canvas>
+
+                </div>
+
+                <div class="graph-card">
+
+                    <h2>
+
+                        <i class="fa-solid fa-chart-bar"></i>
+
+                        Defect Distribution
+
+                    </h2>
+
+                    <canvas id="distributionChart"></canvas>
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- print-area ends -->
+
+    </div>
+    <!-- main-content -->
+
+</div>
+<!-- container -->
+
+<!-- ================= Chart Data ================= -->
+
+<script>
+
+const trendLabels = {{ trend_labels | tojson }};
+const trendValues = {{ trend_values | tojson }};
+
+const passCount = {{ pass_count }};
+const failCount = {{ fail_count }};
+
+const defectLabels = {{ defect_labels | tojson }};
+const defectValues = {{ defect_values | tojson }};
+
+</script>
+
+<!-- ================= JS ================= -->
+
+<script src="{{ url_for('static', filename='js/report.js') }}"></script>
+
+</body>
+
+</html>

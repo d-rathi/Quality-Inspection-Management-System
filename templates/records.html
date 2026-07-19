@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inspection Records | QIMS</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/records.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/inspection">
+                    <i class="fa-solid fa-plus"></i>
+                    New Inspection
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/records">
+                    <i class="fa-solid fa-list"></i>
+                    Inspection Records
+                </a>
+            </li>
+
+            <li>
+                <a href="/defect">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    Raise Defect
+                </a>
+            </li>
+
+            <li>
+                <a href="/tracker">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Defect Tracker
+                </a>
+            </li>
+
+            <li>
+                <a href="/defect-library">
+                    <i class="fa-solid fa-book"></i>
+                    Defect Library
+                </a>
+            </li>
+
+            <li>
+                <a href="/report">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <!-- Topbar -->
+
+        <div class="topbar">
+
+            <h1>Inspection Records</h1>
+
+            <div class="top-right">
+
+                <input
+                    type="text"
+                    placeholder="Search Inspection...">
+
+                <select>
+
+                    <option>All Status</option>
+                    <option>Pass</option>
+                    <option>Fail</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- Summary Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-clipboard-check"></i>
+
+                <h3>Total Inspections</h3>
+
+                <h2>{{ total }}</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                <h3>Passed</h3>
+
+                <h2>{{ passed }}</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+                <h3>Failed</h3>
+
+                <h2>{{ failed }}</h2>
+
+            </div>
+
+        </div>
+
+        <!-- Records Table -->
+
+        <div class="table-section">
+
+            <h2>Inspection History</h2>
+
+            <div class="table-container">
+
+                <table id="inspectionTable">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Tire ID</th>
+                            <th>Article No.</th>
+                            <th>Tire Size</th>
+                            <th>Pattern</th>
+                            <th>Status</th>
+                            <th>Inspector</th>
+                            <th>Date</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for row in records %}
+
+                        <tr>
+
+                            <td>{{ row[0] }}</td>
+                            <td>{{ row[1] }}</td>
+                            <td>{{ row[2] }}</td>
+                            <td>{{ row[3] }}</td>
+                            <td>{{ row[4] }}</td>
+
+                            <td>
+
+                                {% if row[5] == "Pass" %}
+
+                                <span class="status passed">Pass</span>
+
+                                {% else %}
+
+                                <span class="status failed">Fail</span>
+
+                                {% endif %}
+
+                            </td>
+
+                            <td>{{ row[6] }}</td>
+
+                            <td>{{ row[7] }}</td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Pagination -->
+
+            <div class="pagination">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="{{ url_for('static', filename='js/records.js') }}"></script>
+</body>
+
+</html>

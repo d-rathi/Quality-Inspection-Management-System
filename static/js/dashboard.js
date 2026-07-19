@@ -59,101 +59,109 @@ pageButtons.forEach(button => {
 
 
 // ===============================
-// Line Chart
+// Live Line Chart
 // ===============================
 
 const lineCanvas = document.getElementById("lineChart");
 
-if(lineCanvas){
+if (lineCanvas) {
 
-new Chart(lineCanvas,{
+    new Chart(lineCanvas, {
 
-type:"line",
+        type: "line",
 
-data:{
+        data: {
 
-labels:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],
+            labels: graphLabels,
 
-datasets:[{
+            datasets: [{
 
-label:"Inspection",
+                label: "Inspections",
 
-data:[18,25,20,28,35,30,40],
+                data: graphValues,
 
-borderColor:"#2d7ff9",
+                borderColor: "#2d7ff9",
 
-backgroundColor:"rgba(45,127,249,0.2)",
+                backgroundColor: "rgba(45,127,249,0.2)",
 
-fill:true,
+                fill: true,
 
-tension:0.4
+                tension: 0.4
 
-}]
+            }]
 
-},
+        },
 
-options:{
+        options: {
 
-responsive:true,
+            responsive: true,
 
-plugins:{
+            scales: {
 
-legend:{
+                y: {
 
-display:false
+                    beginAtZero: true
+
+                }
+
+            }
+
+        }
+
+    });
 
 }
-
-}
-
-}
-
-});
-
-}
-
-
 // ===============================
-// Pie Chart
+// Pie Chart (Live Data)
 // ===============================
 
-const pieCanvas=document.getElementById("pieChart");
+const pieCanvas = document.getElementById("pieChart");
 
-if(pieCanvas){
+if (pieCanvas) {
 
-new Chart(pieCanvas,{
+    new Chart(pieCanvas, {
 
-type:"pie",
+        type: "pie",
 
-data:{
+        data: {
 
-labels:["Passed","Rejected","Pending"],
+            labels: ["Passed", "Rejected"],
 
-datasets:[{
+            datasets: [{
 
-data:[115,5,3],
+                data: [passCount, failCount],
 
-backgroundColor:[
+                backgroundColor: [
 
-"#4CAF50",
+                    "#4CAF50",
 
-"#F44336",
+                    "#F44336"
 
-"#FFC107"
+                ],
 
-]
+                borderWidth: 1
 
-}]
+            }]
 
-},
+        },
 
-options:{
+        options: {
 
-responsive:true
+            responsive: true,
 
-}
+            plugins: {
 
-});
+                legend: {
+
+                    position: "bottom"
+
+                }
+
+            }
+
+        }
+
+    });
 
 }
 

@@ -1,0 +1,476 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+}
+
+/* ===========================
+   LAYOUT
+=========================== */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+/* ===========================
+   SIDEBAR
+=========================== */
+
+.sidebar{
+    width:260px;
+    background:#0B5CAD;
+    color:#fff;
+    padding:30px 20px;
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+}
+
+.sidebar h2{
+    text-align:center;
+    margin-bottom:40px;
+    font-size:28px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar ul li{
+    margin-bottom:18px;
+}
+
+.sidebar ul li a{
+    text-decoration:none;
+    color:#fff;
+    display:block;
+    padding:14px 18px;
+    border-radius:10px;
+    transition:.3s;
+    font-size:16px;
+}
+
+.sidebar ul li a i{
+    margin-right:12px;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a{
+    background:#fff;
+    color:#0B5CAD;
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.content{
+    margin-left:260px;
+    width:100%;
+    padding:35px;
+}
+
+/* ===========================
+   TOPBAR
+=========================== */
+
+.topbar{
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.topbar h1{
+    color:#dc3545;
+    font-size:30px;
+}
+
+.topbar p{
+    margin-top:8px;
+    color:#666;
+}
+
+/* ===========================
+   FORM CARD
+=========================== */
+
+.form-card{
+    background:#fff;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+}
+
+.form-card h2{
+    color:#dc3545;
+    margin-bottom:25px;
+}
+
+/* ===========================
+   SECTION TITLE
+=========================== */
+
+.section-title{
+    grid-column:1/-1;
+    margin-top:25px;
+    margin-bottom:10px;
+    padding:12px 15px;
+    background:#fdecec;
+    border-left:5px solid #dc3545;
+    border-radius:8px;
+    color:#dc3545;
+    font-size:18px;
+    font-weight:600;
+}
+
+.section-title i{
+    margin-right:10px;
+}
+
+/* ===========================
+   FORM GRID
+=========================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.full-width{
+    grid-column:1/-1;
+}
+
+/* ===========================
+   LABEL
+=========================== */
+
+.form-group label{
+    font-weight:600;
+    margin-bottom:8px;
+    color:#333;
+}
+
+.required{
+    color:red;
+}
+
+/* ===========================
+   INPUTS
+=========================== */
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px 15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+
+.form-group textarea{
+    resize:none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    outline:none;
+    border-color:#dc3545;
+    box-shadow:0 0 8px rgba(220,53,69,.20);
+}
+
+input[readonly]{
+    background:#f3f5f7;
+    cursor:not-allowed;
+}/* ===========================
+   FORM NOTE
+=========================== */
+
+.form-note{
+    margin-top:25px;
+    padding:15px 18px;
+    background:#FFF3F3;
+    border-left:5px solid #dc3545;
+    border-radius:8px;
+    color:#555;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.form-note i{
+    color:#dc3545;
+    margin-right:8px;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.button-group{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.save-btn,
+.reset-btn{
+    padding:12px 24px;
+    border:none;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+/* Save Button */
+
+.save-btn{
+    background:#dc3545;
+    color:white;
+}
+
+.save-btn:hover{
+    background:#b02a37;
+}
+
+/* Reset Button */
+
+.reset-btn{
+    background:#f39c12;
+    color:white;
+}
+
+.reset-btn:hover{
+    background:#d68910;
+}
+
+/* ===========================
+   BACK BUTTON
+=========================== */
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-top:20px;
+    padding:12px 22px;
+    background:#6c757d;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#545b62;
+}
+
+.back-btn i{
+    font-size:14px;
+}
+
+/* ===========================
+   READ ONLY FIELDS
+=========================== */
+
+input[readonly]{
+    background:#eef2f7;
+    color:#666;
+    font-weight:500;
+}/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+
+@media(max-width:1024px){
+
+    .form-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .content{
+
+        padding:25px;
+
+    }
+
+}
+
+/* ===========================
+   TABLET VIEW
+=========================== */
+
+@media(max-width:768px){
+
+    .sidebar{
+
+        display:none;
+
+    }
+
+    .content{
+
+        margin-left:0;
+        width:100%;
+        padding:20px;
+
+    }
+
+    .topbar{
+
+        padding:20px;
+
+    }
+
+    .topbar h1{
+
+        font-size:24px;
+
+    }
+
+    .form-card{
+
+        padding:25px;
+
+    }
+
+    .button-group{
+
+        flex-direction:column;
+
+    }
+
+    .save-btn,
+    .reset-btn{
+
+        width:100%;
+
+    }
+
+    .back-btn{
+
+        width:100%;
+        justify-content:center;
+
+    }
+
+}
+
+/* ===========================
+   MOBILE VIEW
+=========================== */
+
+@media(max-width:480px){
+
+    .content{
+
+        padding:15px;
+
+    }
+
+    .topbar h1{
+
+        font-size:22px;
+
+    }
+
+    .topbar p{
+
+        font-size:14px;
+
+    }
+
+    .form-card{
+
+        padding:18px;
+
+    }
+
+    .section-title{
+
+        font-size:16px;
+
+    }
+
+    .form-group label{
+
+        font-size:14px;
+
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea{
+
+        font-size:14px;
+
+        padding:10px 12px;
+
+    }
+
+    .save-btn,
+    .reset-btn,
+    .back-btn{
+
+        font-size:14px;
+
+        padding:12px;
+
+    }
+
+}
+
+/* ===========================
+   SMOOTH ANIMATION
+=========================== */
+
+.form-card,
+.topbar{
+
+    animation:fadeIn .4s ease-in-out;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+        transform:translateY(12px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}

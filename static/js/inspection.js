@@ -1,4 +1,6 @@
-// ======================================
+
+console.log("inspection.js loaded");
+// =====================================
 // Inspection Page
 // ======================================
 
@@ -17,40 +19,6 @@ window.onload = function () {
     }
 
 };
-
-
-// ======================================
-// Status Color Change
-// ======================================
-
-const status = document.getElementById("status");
-
-if (status) {
-
-    status.addEventListener("change", function () {
-
-        if (this.value === "Pass") {
-
-            this.style.border = "2px solid green";
-
-        }
-
-        else if (this.value === "Fail") {
-
-            this.style.border = "2px solid red";
-
-        }
-
-        else {
-
-            this.style.border = "1px solid #ccc";
-
-        }
-
-    });
-
-}
-
 
 // ======================================
 // Final Decision Alert
@@ -72,7 +40,6 @@ if (decision) {
 
 }
 
-
 // ======================================
 // Form Validation
 // ======================================
@@ -83,11 +50,12 @@ if (inspectionForm) {
 
     inspectionForm.addEventListener("submit", function (e) {
 
-        const tyreId = document.getElementById("tyre_id").value.trim();
+        // Fixed ID (tire_id)
+        const tireId = document.getElementById("tire_id").value.trim();
 
         const article = document.getElementById("article_number").value.trim();
 
-        if (tyreId === "" || article === "") {
+        if (tireId === "" || article === "") {
 
             alert("Please fill all mandatory fields.");
 
@@ -96,5 +64,55 @@ if (inspectionForm) {
         }
 
     });
+
+}
+
+// ======================================
+// Enable / Disable Raise Defect Button
+// ======================================
+
+const inspectionStatus = document.getElementById("inspectionStatus");
+const raiseDefectBtn = document.getElementById("raiseDefectBtn");
+
+if (inspectionStatus && raiseDefectBtn) {
+
+    inspectionStatus.addEventListener("change", function () {
+
+        if (this.value === "Fail") {
+
+            raiseDefectBtn.disabled = false;
+
+        }
+
+        else {
+
+            raiseDefectBtn.disabled = true;
+
+        }
+
+    });
+
+}
+
+// ==============================
+// Enable / Disable Raise Defect Button
+// ==============================
+
+const inspectionStatus = document.getElementById("inspectionStatus");
+const raiseDefectBtn = document.getElementById("raiseDefectBtn");
+
+inspectionStatus.addEventListener("change", function () {
+
+    if (this.value === "Fail") {
+
+        raiseDefectBtn.disabled = false;
+
+    } else {
+
+        raiseDefectBtn.disabled = true;
+
+    }
+
+});
 
 }

@@ -48,19 +48,24 @@
         </li>
 
         <li>
+            <a href="/defects">
+                <i class="fa-solid fa-book"></i>
+                Defect Tracker
+            </a>
+        </li>
+        <li>
+            <a href="/defect-library">
+               <i class="fa-solid fa-book"></i>
+                Defect Library
+            </a>
+        </li>
+
+        <li>
             <a href="/report">
                 <i class="fa-solid fa-file-lines"></i>
                 Reports
             </a>
         </li>
-
-        <li>
-            <a href="/defects">
-                <i class="fa-solid fa-book"></i>
-                Defect Library
-            </a>
-        </li>
-
         <li>
             <a href="/logout">
                 <i class="fa-solid fa-right-from-bracket"></i>
@@ -95,7 +100,7 @@
 
                     <i class="fa-solid fa-user"></i>
 
-                    Admin
+                {{username}}
 
                 </div>
 
@@ -114,7 +119,7 @@
 
         <h3>Total Inspection</h3>
 
-        <h2>120</h2>
+        <h2>{{total}}</h2>
 
     </div>
 
@@ -122,9 +127,9 @@
 
         <i class="fa-solid fa-circle-check"></i>
 
-        <h3>Passed Tyres</h3>
+        <h3>Passed Tires</h3>
 
-        <h2>115</h2>
+        <h2>{{passed}}</h2>
 
     </div>
 
@@ -132,9 +137,9 @@
 
         <i class="fa-solid fa-circle-xmark"></i>
 
-        <h3>Rejected Tyres</h3>
+        <h3>Rejected Tires</h3>
 
-        <h2>5</h2>
+        <h2>{{failed}}</h2>
 
     </div>
 
@@ -144,7 +149,7 @@
 
         <h3>Pending Inspection</h3>
 
-        <h2>3</h2>
+        <h2>{{pending}}</h2>
 
     </div>
 
@@ -154,7 +159,7 @@
 
         <h3>Quality Rate</h3>
 
-        <h2>95.83%</h2>
+        <h2>{{quality_rate}}%</h2>
 
     </div>
 
@@ -180,12 +185,6 @@
 
                 <th>Size</th>
 
-                <th>TU</th>
-
-                <th>TG</th>
-
-                <th>TB</th>
-
                 <th>Result</th>
 
                 <th>Inspector</th>
@@ -198,88 +197,65 @@
 
         <tbody>
 
-            <tr>
+        {% for row in recent_inspections %}
 
-                <td>QI001</td>
+        <tr>
 
-                <td>ART1025</td>
+           <td>{{ row[0] }}</td>
 
-                <td>205/55 R16</td>
+           <td>{{ row[1] }}</td>
 
-                <td>Pass</td>
+           <td>{{ row[2] }}</td>
 
-                <td>Pass</td>
+           <td>
+           {% if row[3] == "Pass" %}
+            <span class="status passed">Pass</span>
+            {% else %}
+            <span class="status rejected">Fail</span>
+            {% endif %}
+           </td>
 
-                <td>Pass</td>
+           <td>{{ row[4] }}</td>
 
-                <td><span class="status passed">Passed</span></td>
+           <td>{{ row[5] }}</td>
 
-                <td>Deepali</td>
+        </tr>
 
-                <td>05-07-2026</td>
-
-            </tr>
-
-            <tr>
-
-                <td>QI002</td>
-
-                <td>ART1040</td>
-
-                <td>215/60 R17</td>
-
-                <td>Pass</td>
-
-                <td>Fail</td>
-
-                <td>Pass</td>
-
-                <td><span class="status rejected">Rejected</span></td>
-
-                <td>Rahul</td>
-
-                <td>05-07-2026</td>
-
-            </tr>
-
-            <tr>
-
-                <td>QI003</td>
-
-                <td>ART1085</td>
-
-                <td>195/65 R15</td>
-
-                <td>Pass</td>
-
-                <td>Pass</td>
-
-                <td>Pass</td>
-
-                <td><span class="status passed">Passed</span></td>
-
-                <td>Aman</td>
-
-                <td>05-07-2026</td>
-
-            </tr>
+        {% endfor %}
 
         </tbody>
-
     </table>
 
 </div>
 <div class="pagination">
 
-    <button>Previous</button>
+    {% if page > 1 %}
+        <a href="{{ url_for('dashboard', page=page-1) }}">
+            <button>Previous</button>
+        </a>
+    {% else %}
+        <button disabled>Previous</button>
+    {% endif %}
 
-    <button class="active-page">1</button>
+    {% for p in range(1, total_pages + 1) %}
 
-    <button>2</button>
+        {% if p == page %}
+            <button class="active-page">{{ p }}</button>
+        {% else %}
+            <a href="{{ url_for('dashboard', page=p) }}">
+                <button>{{ p }}</button>
+            </a>
+        {% endif %}
 
-    <button>3</button>
+    {% endfor %}
 
-    <button>Next</button>
+    {% if page < total_pages %}
+        <a href="{{ url_for('dashboard', page=page+1) }}">
+            <button>Next</button>
+        </a>
+    {% else %}
+        <button disabled>Next</button>
+    {% endif %}
 
 </div>
 </div>
@@ -302,14 +278,14 @@
         <canvas id="pieChart"></canvas>
 
     </div>
+    <script>
+const graphLabels = {{ graph_labels | tojson }};
+const graphValues = {{ graph_values | tojson }};
+const passCount = {{ pass_count | tojson }};
+const failCount = {{ fail_count | tojson }};
+</script>
 
-</div>
-    </div>
-
-</div>
-
-<script src="../static/js/dashboard.js"></script>
-
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
 
 </html>

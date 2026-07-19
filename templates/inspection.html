@@ -43,7 +43,18 @@
                     Inspection Records
                 </a>
             </li>
-
+            <li>
+               <a href="/defects">
+                <i class="fa-solid fa-book"></i>
+                Defect Tracker
+               </a>
+            </li>
+            <li>
+               <a href="/defect-library">
+               <i class="fa-solid fa-book"></i>
+                Defect Library
+               </a>
+            </li>
             <li>
                 <a href="/report">
                     <i class="fa-solid fa-file-lines"></i>
@@ -51,12 +62,7 @@
                 </a>
             </li>
 
-            <li>
-                <a href="/profile">
-                    <i class="fa-solid fa-user"></i>
-                    Profile
-                </a>
-            </li>
+            
 
             <li>
                 <a href="/logout">
@@ -75,7 +81,7 @@
 
         <header class="topbar">
 
-            <h1>New Tyre Inspection</h1>
+            <h1>New Tire Inspection</h1>
 
             <p> Quality Inspection Management System</p>
 
@@ -101,14 +107,14 @@
 
     <label>
         <i class="fa-solid fa-barcode"></i>
-        Tyre ID
+        Tire ID
     </label>
 
     <input
         type="text"
-        id="tyre_id"
-        name="tyre_id"
-        placeholder="Enter Tyre ID"
+        id="tire_id"
+        name="tire_id"
+        placeholder="Enter Tire ID"
         required>
 
 </div>
@@ -137,13 +143,13 @@
 
     <label>
         <i class="fa-solid fa-ruler"></i>
-        Tyre Size
+        Tire Size
     </label>
 
     <input
         type="text"
-        id="tyre_size"
-        name="tyre_size"
+        id="tire_size"
+        name="tire_size"
         placeholder="Example: 205/55 R16"
         required>
 
@@ -160,8 +166,8 @@
 
     <input
         type="text"
-        id="pattern"
-        name="pattern"
+        id="pattern_name"
+        name="pattern_name"
         placeholder="Enter Pattern Name"
         required>
 
@@ -195,8 +201,8 @@
 
     <input
         type="text"
-        id="inspector"
-        name="inspector"
+        id="inspector_name"
+        name="inspector_name"
         placeholder="Inspector Name"
         required>
 
@@ -255,8 +261,8 @@
     </label>
 
     <select
-        id="machine"
-        name="machine"
+        id="machine_name"
+        name="machine_name"
         required>
 
         <option value="">Select Machine</option>
@@ -280,99 +286,17 @@
         Inspection Status
     </label>
 
-    <select
-        id="status"
-        name="status"
-        required>
+    <select id="inspectionStatus" name="inspection_status" required>
 
-        <option value="">Select Status</option>
+    <option value="">Select Status</option>
 
-        <option>Pass</option>
+    <option value="Pass">Pass</option>
 
-        <option>Fail</option>
+    <option value="Fail">Fail</option>
 
     </select>
-
 </div>
 
-<!-- Defect Category -->
-
-<div class="form-group">
-
-    <label>
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        Defect Category
-    </label>
-
-    <select
-        id="defect_category"
-        name="defect_category">
-
-        <option value="">Select Category</option>
-
-        <option>Uniformity Defect</option>
-
-        <option>Balancing Defect</option>
-
-        <option>Geometry Defect</option>
-
-        <option>Visual Defect</option>
-
-        <option>Bead Defect</option>
-
-        <option>Sidewall Defect</option>
-
-        <option>Tread Defect</option>
-
-        <option>Other</option>
-
-    </select>
-
-</div>
-
-<!-- Severity -->
-
-<div class="form-group">
-
-    <label>
-        <i class="fa-solid fa-signal"></i>
-        Severity
-    </label>
-
-    <select
-        id="severity"
-        name="severity">
-
-        <option value="">Select Severity</option>
-
-        <option>Low</option>
-
-        <option>Medium</option>
-
-        <option>High</option>
-
-        <option>Critical</option>
-
-    </select>
-
-</div>
-
-<!-- Defect Description -->
-
-<div class="form-group full-width">
-
-    <label>
-        <i class="fa-solid fa-file-circle-exclamation"></i>
-        Defect Description
-    </label>
-
-    <textarea
-        id="defect_description"
-        name="defect_description"
-        rows="4"
-        placeholder="Describe the defect"></textarea>
-
-</div>
 
 <!-- Remarks -->
 
@@ -420,26 +344,33 @@
 
                 <div class="button-group">
 
-                    <button
-                        type="submit"
-                        class="save-btn">
+                     <button
+                         type="submit"
+                         class="save-btn">
 
-                        <i class="fa-solid fa-floppy-disk"></i>
+                         Save Inspection
 
-                        Save Inspection
+                     </button>
 
-                    </button>
+                     <button
+                         type="button"
+                         id="raiseDefectBtn"
+                         class="defect-btn"
+                         disabled>
 
-                    <button
-                        type="reset"
-                        class="reset-btn">
+                         Raise a Defect
 
-                        <i class="fa-solid fa-rotate-left"></i>
+                     </button>
 
-                        Reset Form
+                      <button
+                          type="reset"
+                          class="reset-btn">
 
-                    </button>
+                          Reset
 
+                     </button>
+
+                </div>
                     <a
                         href="/dashboard"
                         class="back-btn">

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Defect Library | QIMS</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/defect_library.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>QIMS</h2>
+
+        <ul>
+
+            <li>
+                <a href="/dashboard">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/inspection">
+                    <i class="fa-solid fa-plus"></i>
+                    New Inspection
+                </a>
+            </li>
+
+            <li>
+                <a href="/records">
+                    <i class="fa-solid fa-table"></i>
+                    Inspection Records
+                </a>
+            </li>
+
+            <li>
+                <a href="/tracker">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    Defect Tracker
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="/defect-library">
+                    <i class="fa-solid fa-book"></i>
+                    Defect Library
+                </a>
+            </li>
+
+            <li>
+                <a href="/report">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Reports
+                </a>
+            </li>
+
+            <li>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <div class="topbar">
+
+            <h1>📚 Defect Library</h1>
+
+            <p>
+                Learn about common tire defects, their causes, impact and recommended actions.
+            </p>
+
+        </div>
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search Defect...">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="card-container">
+
+            <!-- Card 1 -->
+
+            <div class="defect-card">
+
+                <h2>🔵 Uniformity Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Variation in tire uniformity that may cause vibration during driving.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Material variation</li>
+
+                    <li>Improper curing</li>
+
+                    <li>Manufacturing inconsistency</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Ride discomfort and vehicle vibration.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Re-inspect the tire and verify machine settings.
+                </p>
+
+            </div>
+
+            <!-- Card 2 -->
+
+            <div class="defect-card">
+
+                <h2>🟣 Geometry Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Incorrect tire geometry such as radial or lateral run-out.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Improper molding</li>
+
+                    <li>Machine calibration issue</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Poor vehicle handling and uneven wear.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Perform geometry inspection and calibration.
+                </p>
+
+            </div>
+
+            <!-- Card 3 -->
+
+            <div class="defect-card">
+
+                <h2>🟠 Balancing Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Uneven weight distribution inside the tire.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Material imbalance</li>
+
+                    <li>Manufacturing variation</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Steering vibration and poor driving stability.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Perform dynamic balancing test.
+                </p>
+
+            </div>
+
+            <!-- Card 4 -->
+
+            <div class="defect-card">
+
+                <h2>🔴 Sidewall Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Cracks, cuts or bulges on the tire sidewall.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Handling damage</li>
+
+                    <li>Manufacturing issue</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Reduced tire strength and safety risk.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Perform detailed visual inspection.
+                </p>
+
+            </div>
+
+            <!-- Card 5 -->
+
+            <div class="defect-card">
+
+                <h2>🟢 Bead Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Damage near the bead area affecting rim fitting.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Improper mounting</li>
+
+                    <li>Manufacturing defect</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Air leakage and sealing issues.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Inspect bead area before approval.
+                </p>
+
+            </div>
+
+            <!-- Card 6 -->
+
+            <div class="defect-card">
+
+                <h2>🟤 Tread Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Surface irregularities or uneven tread formation.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Curing issue</li>
+
+                    <li>Mold problem</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Reduced traction and uneven wear.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Verify curing and molding process.
+                </p>
+
+            </div>
+
+            <!-- Card 7 -->
+
+            <div class="defect-card">
+
+                <h2>⚫ Visual Defect</h2>
+
+                <h3>Description</h3>
+
+                <p>
+                    Surface scratches, contamination or appearance defects.
+                </p>
+
+                <h3>Possible Causes</h3>
+
+                <ul>
+
+                    <li>Handling issue</li>
+
+                    <li>Surface contamination</li>
+
+                </ul>
+
+                <h3>Impact</h3>
+
+                <p>
+                    Customer rejection and cosmetic quality issues.
+                </p>
+
+                <h3>Recommended Action</h3>
+
+                <p>
+                    Clean and inspect before approval.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            <p>
+
+                This library is intended for learning and reference purposes.
+                It helps inspectors understand common tire defects before
+                recording them in the system.
+
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/defect_library.js') }}"></script>
+
+</body>
+</html>
