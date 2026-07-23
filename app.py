@@ -514,7 +514,7 @@ def init_db():
     )
     """)
 
-    # ==========================
+        # ==========================
     # Inspection Table
     # ==========================
 
@@ -582,13 +582,17 @@ def init_db():
     """)
 
     conn.commit()
-    conn.close()   
+    conn.close()
 
-    @app.route("/defect-library")
-    def defect_library():
-        return render_template("defect_library.html")
 
-        # ---------------- DEFECT TRACKER ----------------
+# ---------------- DEFECT LIBRARY ----------------
+
+@app.route("/defect-library")
+def defect_library():
+    return render_template("defect_library.html")
+
+
+# ---------------- DEFECT TRACKER ----------------
 
 @app.route("/tracker")
 def tracker():
@@ -803,6 +807,7 @@ def report():
         defect_labels=defect_labels,
         defect_values=defect_values,
     )
+   
 # ---------------- MAIN ----------------
 init_db()
 

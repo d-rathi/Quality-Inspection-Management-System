@@ -1,0 +1,134 @@
+/* ================= Contact Page ================= */
+
+.contact-container{
+    padding:30px;
+}
+
+.contact-container h1{
+    color:#1e3a8a;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:30px;
+    font-size:16px;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* ================= Left Cards ================= */
+
+.info-card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    border-left:5px solid #2d7ff9;
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.info-card i{
+    font-size:35px;
+    color:#2d7ff9;
+    margin-bottom:15px;
+}
+
+.info-card h3{
+    color:#1e3a8a;
+    margin-bottom:10px;
+}
+
+.info-card p{
+    color:#666;
+    line-height:1.6;
+}
+
+/* ================= Contact Form ================= */
+
+.contact-form{
+    background:#ffffff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:18px;
+    border:1px solid #d9d9d9;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+    outline:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#2d7ff9;
+    box-shadow:0 0 8px rgba(45,127,249,.2);
+}
+
+.contact-form textarea{
+    resize:none;
+}
+
+.contact-form button{
+    width:100%;
+    background:#2d7ff9;
+    color:#fff;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.contact-form button:hover{
+    background:#1f66d1;
+}
+
+/* ================= Contact Details ================= */
+
+.company-details{
+    margin-top:35px;
+    background:#ffffff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.company-details h2{
+    color:#1e3a8a;
+    margin-bottom:20px;
+}
+
+.company-details p{
+    font-size:16px;
+    color:#555;
+    margin:12px 0;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:900px){
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+}
